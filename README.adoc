@@ -1,0 +1,7 @@
+= Vert.x Gradle Quickstart for JenkinsX
+
+
+== References
+The repository is based on the following repositories:
+
+* https://github.com/vert-x3/vertx-gradle-starter[*vertx-gradle-starter*]
