@@ -11,8 +11,6 @@ repositories {
   jcenter()
 }
 
-version = "0.0.1"
-
 val vertxVersion = "3.8.0"
 val junitVersion = "5.3.2"
 
