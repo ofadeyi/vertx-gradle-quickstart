@@ -1,1 +1,1 @@
-rootProject.name = "vertx-gradle-quickstart"
+rootProject.name = "REPLACE_ME_APP_NAME"

@@ -1,7 +1,7 @@
 FROM vertx/vertx3-alpine
 
 ENV VERTICLE_NAME io.vertx.quickstart.MainVerticle
-ENV VERTICLE_FILE build/libs/vertx-gradle-quickstart.jar
+ENV VERTICLE_FILE build/libs/REPLACE_ME_APP_NAME.jar
 
 # Set the location of the verticles
 ENV VERTICLE_HOME /usr/verticles
