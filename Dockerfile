@@ -1,12 +1,19 @@
-FROM vertx/vertx3-exec-alpine
+FROM vertx/vertx3-alpine
 
 ENV VERTICLE_NAME io.vertx.quickstart.MainVerticle
-ENV VERTICLE_HOME /usr/verticles
-ENV APP_NAME vertx-gradle-quickstart
-ENV APP_VERSION 0.0.1
+ENV VERTICLE_FILE build/libs/vertx-gradle-quickstart.jar
 
-ENTRYPOINT [ "sh", "-c", "vertx run $VERTICLE_NAME -cp $VERTICLE_HOME/*" ]
+# Set the location of the verticles
+ENV VERTICLE_HOME /usr/verticles
 
 EXPOSE 8080
 
-ADD build/libs/$APP_NAME-$APP_VERSION.jar $VERTICLE_HOME/
+ENV JAVA_OPTS "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+
+# Launch the verticle
+WORKDIR $VERTICLE_HOME
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec vertx run $VERTICLE_NAME -cp $VERTICLE_HOME/*"]
+
+# Copy your verticle to the container
+COPY $VERTICLE_FILE $VERTICLE_HOME/
